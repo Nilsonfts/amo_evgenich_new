@@ -1,0 +1,119 @@
+{
+  "leads": [
+    {
+      "id": 123456,
+      "name": "Тестовая сделка ЕВГ СПБ",
+      "price": 75000,
+      "status_id": 142,
+      "pipeline_id": 3198174,
+      "responsible_user_id": 8051110,
+      "created_at": 1641024000,
+      "updated_at": 1641110400,
+      "account_id": 15699349,
+      "group_id": 0,
+      "company_id": 987654,
+      "contact_id": 556677,
+      "is_deleted": false,
+      "custom_fields_values": [
+        {
+          "field_id": 123,
+          "field_name": "Источник",
+          "field_code": "SOURCE",
+          "field_type": "text",
+          "values": [
+            {
+              "value": "Сайт"
+            }
+          ]
+        }
+      ],
+      "_embedded": {
+        "contacts": [
+          {
+            "id": 556677,
+            "name": "Иван Петров",
+            "custom_fields_values": [
+              {
+                "field_id": 456,
+                "field_name": "Телефон",
+                "field_code": "PHONE",
+                "field_type": "multitext",
+                "values": [
+                  {
+                    "value": "+7 (999) 123-45-67",
+                    "enum": "WORK"
+                  }
+                ]
+              },
+              {
+                "field_id": 789,
+                "field_name": "Email",
+                "field_code": "EMAIL",
+                "field_type": "multitext",
+                "values": [
+                  {
+                    "value": "ivan.petrov@example.com",
+                    "enum": "WORK"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "companies": [
+          {
+            "id": 987654,
+            "name": "ООО Рога и Копыта"
+          }
+        ]
+      }
+    },
+    {
+      "id": 654321,
+      "name": "Еще одна сделка",
+      "price": 120000,
+      "status_id": 143,
+      "pipeline_id": 3198174,
+      "responsible_user_id": 8051110,
+      "created_at": 1641024000,
+      "updated_at": 1641110400,
+      "account_id": 15699349,
+      "group_id": 0,
+      "is_deleted": false,
+      "_embedded": {
+        "contacts": [
+          {
+            "id": 778899,
+            "name": "Мария Сидорова",
+            "custom_fields_values": [
+              {
+                "field_id": 456,
+                "field_name": "Телефон",
+                "field_code": "PHONE",
+                "field_type": "multitext",
+                "values": [
+                  {
+                    "value": "+7 (888) 987-65-43",
+                    "enum": "WORK"
+                  }
+                ]
+              },
+              {
+                "field_id": 789,
+                "field_name": "Email",
+                "field_code": "EMAIL",
+                "field_type": "multitext",
+                "values": [
+                  {
+                    "value": "maria.sidorova@company.ru",
+                    "enum": "WORK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
