@@ -38,13 +38,30 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Health check with status rate limiting
-app.get('/health', rateLimiters.statusRateLimit, (req, res) => {
-  res.status(200).json({
-    status: 'OK',
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    environment: process.env.NODE_ENV || 'production'
-  });
+app.get('/health', (req, res) => {
+  try {
+    // Проверка основных компонентов
+    const healthCheck = {
+      status: 'OK',
+      timestamp: new Date().toISOString(),
+      uptime: process.uptime(),
+      environment: process.env.NODE_ENV || 'production',
+      memory: {
+        total: Math.round(process.memoryUsage().heapTotal / 1024 / 1024),
+        used: Math.round(process.memoryUsage().heapUsed / 1024 / 1024),
+        external: Math.round(process.memoryUsage().external / 1024 / 1024)
+      }
+    };
+
+    res.status(200).json(healthCheck);
+  } catch (error) {
+    logger.error('Health check failed:', error);
+    res.status(503).json({
+      status: 'ERROR',
+      timestamp: new Date().toISOString(),
+      error: error.message
+    });
+  }
 });
 
 // Status endpoint
